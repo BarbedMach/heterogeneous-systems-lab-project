@@ -31,7 +31,7 @@ int main(int argc, char** argv) {
 
   auto* A = static_cast<int*>(new int[SIZE]);
 
-  //iris_register_policy("libCustomPolicy.so", "custom_policy", NULL); // nullptr/NULL can be replaced by policy init arguments if the policy depends on external arguments.
+  iris_register_policy("libCustomPolicy.so", "custom_policy", NULL); // nullptr/NULL can be replaced by policy init arguments if the policy depends on external arguments.
 
   iris_mem mem_A;
   iris_mem_create(SIZE * sizeof(int), &mem_A);

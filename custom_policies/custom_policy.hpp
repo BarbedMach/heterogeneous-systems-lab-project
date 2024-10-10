@@ -7,9 +7,10 @@ namespace iris::rt {
     class CustomPolicy : public Policy {
         public:
             CustomPolicy();
-            ~CustomPolicy() final;
+            CustomPolicy(Scheduler* scheduler);
+            ~CustomPolicy() override;
 
-            void GetDevices(Task* task, Device** devices, int* n_devices) final;
+            void GetDevices(Task* task, Device** devices, int* n_devices) override;
         private:
     };
 
