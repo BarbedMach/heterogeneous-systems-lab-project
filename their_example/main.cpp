@@ -5,7 +5,7 @@
 int main(int argc, char** argv) {
   iris_init(&argc, &argv, true);
 
-  size_t SIZE = argc > 1 ? atol(argv[1]) : 128;
+  size_t SIZE = argc > 1 ? atol(argv[1]) : 8;
 
   int* A = (int*) malloc(SIZE * sizeof(int));
 

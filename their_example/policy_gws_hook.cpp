@@ -46,14 +46,11 @@ public:
     threshold_ = (size_t) params;
   }
   virtual void GetDevices(Task* task, Device** devs, int* ndevs) {
-    Command* cmd = task->cmd_kernel();
-    size_t* gws = cmd->gws();
-    size_t total_work_items = gws[0] * gws[1] * gws[2];
-    int target_dev = total_work_items > threshold_ ? iris_gpu : iris_cpu;
-    int devid = 0;
-    for (int i = 0; i < ndevices(); i++)
-      if (device(i)->type() & target_dev) devs[devid++] = device(i);
-    *ndevs = devid;
+    int chosenDeviceIndex = *getenv("IRIS_ENH_DEVICE_OPENCL_2") - '0';
+    _info("Chosen dev index: %d", chosenDeviceIndex);
+    _info("Number of devices: %d", *ndevs);
+    devs[0] = device(chosenDeviceIndex);
+    *ndevs = 1;
   }
 
   size_t threshold_;
