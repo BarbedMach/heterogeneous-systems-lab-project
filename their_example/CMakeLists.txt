@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.25)
 
 project(example)
 
-set(IRIS_ENHANCED_INSTALL_DIR /cta/users/fozdemir/dev/local_pckgs/iris-enhanced/usr/local)
+set(IRIS_ENHANCED_INSTALL_DIR /cta/users/fozdemir/dev/local_pckgs/usr/local)
 
 add_library(OpenMPKernel SHARED kernel.cl.openmp.h kernel.cl.openmp.c)
 target_include_directories(OpenMPKernel PRIVATE ${IRIS_ENHANCED_INSTALL_DIR}/include)
